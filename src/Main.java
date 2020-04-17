@@ -57,10 +57,9 @@ public class Main {
             pstmt.setInt(1, sendAccount);
             rset = pstmt.executeQuery();
 
-            int sendBalance = 0;
-            while(rset.next()) {
-                 sendBalance = rset.getInt("balance" );
-            }
+
+            rset.next();
+            int sendBalance = rset.getInt("balance");
 
             //Actual calculation for sending
             sendBalance = sendBalance - transfer;
@@ -89,10 +88,8 @@ public class Main {
             pstmt.setInt(1, receiveAccount);
             rset = pstmt.executeQuery();
 
-            int receiveBalance = 0;
-            while(rset.next()) {
-                receiveBalance = rset.getInt("balance" );
-            }
+            rset.next();
+            int receiveBalance = rset.getInt("balance");
 
             //Actual calculation for receiving
             receiveBalance = receiveBalance + transfer;
